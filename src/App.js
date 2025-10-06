@@ -1,22 +1,7 @@
-import { createSlice } from "@reduxjs/toolkit";
+import React from "react";
+import Counter from "./components/Counter";
 
-const initialState = {
-  count: 0,
-};
-export const countSlice = createSlice({
-  name: "counter",
-  initialState,
-  reducers: {
-    increment: (state) => {
-      state.count += 1;
-    },
-    decrement: (state) => {
-      state.count -= 1;
-    },
-    reset: (state) => {
-      state.count = 0;
-    },
-  },
-});
-export const { increment, decrement, reset } = countSlice.actions;
-export default countSlice.reducer;
+function App() {
+  return <Counter />;
+}
+export default App;

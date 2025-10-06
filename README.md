@@ -1,70 +1,81 @@
-# Getting Started with Create React App
+# Counter App (React + Redux Toolkit)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Simple counter application built with React and Redux Toolkit. It demonstrates a minimal state slice, a configured store, and a component using `useSelector` and `useDispatch` to read and update state.
+
+### Features
+
+- Increment, decrement, and reset the counter
+- Centralized state management via Redux Toolkit slice
+- `Provider`-wrapped app with a configured store
+- Clean, beginner-friendly project structure
+
+## Prerequisites
+
+- Node.js 18+ and npm 8+
+
+## Quick Start
+
+1. Navigate to the app folder:
+
+```bash
+cd counter-app
+```
+
+2. Install dependencies:
+
+```bash
+npm install
+# If Redux packages are missing (first-time setup), also run:
+npm i @reduxjs/toolkit react-redux
+```
+
+3. Start the development server:
+
+```bash
+npm start
+```
+
+4. Open `http://localhost:3000` in your browser.
+
+## Project Structure
+
+```text
+counter-app/
+  public/
+    index.html           # Root HTML with <div id="root"></div>
+  src/
+    App.js               # Renders the Counter component
+    index.js             # React entry, wraps App with Redux Provider
+    index.css            # Global styles (optional)
+    components/
+      Counter.js         # UI: buttons + current count
+    redux/
+      store.js           # Configures Redux store
+      counterSlice.js    # Slice with increment/decrement/reset reducers
+```
+
+## How It Works
+
+- `redux/counterSlice.js` defines the `counter` slice with `count` in state and three reducers.
+- `redux/store.js` registers the slice reducer under `counter`.
+- `index.js` creates a React root and renders `<App />` inside a Redux `Provider`.
+- `components/Counter.js` uses `useSelector` to read `state.counter.count` and `useDispatch` to send `increment`, `decrement`, and `reset` actions.
 
 ## Available Scripts
 
-In the project directory, you can run:
+- `npm start`: Run the app in development mode at `http://localhost:3000`.
+- `npm run build`: Create a production build in the `build/` directory.
+- `npm test`: Run tests in watch mode (if you add tests).
 
-### `npm start`
+## Troubleshooting
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- Blank screen or nothing renders:
+  - Ensure `App.js` returns JSX: `return <Counter />;`
+  - Make sure Redux deps are installed: `npm i @reduxjs/toolkit react-redux`
+  - Check browser console for runtime errors and fix missing imports.
+  - Confirm `public/index.html` contains `<div id="root"></div>`.
+- Port already in use: stop other apps on port 3000 or run with a different port.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## License
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+MIT (for learning/demo purposes)
